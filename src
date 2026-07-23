@@ -1,0 +1,163 @@
+import java.util.Scanner;
+
+public class HotelMenu {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int choice, item, qty;
+        double price = 0, total = 0, bill = 0;
+        String itemName = "";
+
+        System.out.println("********************************");
+        System.out.println("     WELCOME TO RUHAN'S HOTEL");
+        System.out.println("********************************");
+
+        // ---------- First Order ----------
+        System.out.println("\n1. Veg");
+        System.out.println("2. Non-Veg");
+        System.out.print("Enter your choice: ");
+        choice = sc.nextInt();
+
+        switch (choice) {
+
+            case 1:
+                System.out.println("\n--- VEG MENU ---");
+                System.out.println("1. Veg Fried Rice - Rs.120");
+                System.out.println("2. Paneer Butter Masala - Rs.180");
+                System.out.println("3. Gobi Manchurian - Rs.150");
+                System.out.print("Select Item: ");
+                item = sc.nextInt();
+
+                switch (item) {
+                    case 1:
+                        itemName = "Veg Fried Rice";
+                        price = 120;
+                        break;
+                    case 2:
+                        itemName = "Paneer Butter Masala";
+                        price = 180;
+                        break;
+                    case 3:
+                        itemName = "Gobi Manchurian";
+                        price = 150;
+                        break;
+                    default:
+                        System.out.println("Invalid Item");
+                        return;
+                }
+                break;
+
+            case 2:
+                System.out.println("\n--- NON-VEG MENU ---");
+                System.out.println("1. Butter Chicken - Rs.300");
+                System.out.println("2. Mutton Biryani - Rs.280");
+                System.out.println("3. Chicken Biryani - Rs.210");
+                System.out.print("Select Item: ");
+                item = sc.nextInt();
+
+                switch (item) {
+                    case 1:
+                        itemName = "Butter Chicken";
+                        price = 300;
+                        break;
+                    case 2:
+                        itemName = "Mutton Biryani";
+                        price = 280;
+                        break;
+                    case 3:
+                        itemName = "Chicken Biryani";
+                        price = 210;
+                        break;
+                    default:
+                        System.out.println("Invalid Item");
+                        return;
+                }
+                break;
+
+            default:
+                System.out.println("Invalid Choice");
+                return;
+        }
+
+        System.out.print("Enter Quantity: ");
+        qty = sc.nextInt();
+
+        total = price * qty;
+        bill = total;
+
+        System.out.println("Item : " + itemName);
+        System.out.println("Amount : Rs." + total);
+
+        // ---------- Second Order ----------
+        System.out.print("\nDo you want another item? (1-Yes / 2-No): ");
+        int again = sc.nextInt();
+
+        if (again == 1) {
+
+            System.out.println("\n1. Veg");
+            System.out.println("2. Non-Veg");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.println("\n--- VEG MENU ---");
+                    System.out.println("1. Veg Fried Rice - Rs.120");
+                    System.out.println("2. Paneer Butter Masala - Rs.180");
+                    System.out.println("3. Gobi Manchurian - Rs.150");
+                    System.out.print("Select Item: ");
+                    item = sc.nextInt();
+
+                    if (item == 1)
+                        price = 120;
+                    else if (item == 2)
+                        price = 180;
+                    else if (item == 3)
+                        price = 150;
+                    else {
+                        System.out.println("Invalid Item");
+                        return;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("\n--- NON-VEG MENU ---");
+                    System.out.println("1. Chicken Biryani - Rs.210");
+                    System.out.println("2. Chicken Fried Rice - Rs.180");
+                    System.out.println("3. Mutton Curry - Rs.300");
+                    System.out.print("Select Item: ");
+                    item = sc.nextInt();
+
+                    if (item == 1)
+                        price = 210;
+                    else if (item == 2)
+                        price = 180;
+                    else if (item == 3)
+                        price = 300;
+                    else {
+                        System.out.println("Invalid Item");
+                        return;
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice");
+                    return;
+            }
+
+            System.out.print("Enter Quantity: ");
+            qty = sc.nextInt();
+
+            total = price * qty;
+            bill = bill + total;
+        }
+
+        System.out.println("\n========== FINAL BILL ==========");
+        System.out.println("Total Bill : Rs." + bill);
+        System.out.println("Thank You! Visit Again!");
+
+        sc.close();
+    }
+}
